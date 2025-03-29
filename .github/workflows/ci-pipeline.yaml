@@ -4,6 +4,21 @@ on:
   push:
     branches:
       - main
+  workflow_dispatch:          
+    inputs:
+      environment:
+        description: 'Environment to deploy'
+        required: true
+        default: 'dev'
+        type: choice
+        options:
+          - dev
+          - staging
+          - prod
+      image_tag:
+        description: 'Docker Image Tag (leave empty for default SHA)'
+        required: false
+        default: ''
 
 jobs:
   build:
@@ -23,7 +38,10 @@ jobs:
       
       - name: Build and Push Docker Image
         run: |
-          SHA=$(echo $GITHUB_SHA | cut -c1-7)  # Use the short SHA key
+          SHA=$(echo $GITHUB_SHA | cut -c1-7)  
+          if [[ -n "${{ inputs.image_tag }}" ]]; then
+            SHA=${{ inputs.image_tag }}
+          fi
           echo "SHA=$SHA" >> $GITHUB_ENV
           
           # Build with both SHA and latest tags
