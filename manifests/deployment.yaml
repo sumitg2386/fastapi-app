@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: sumitg2386/fastapi-app:262c3f4
+  name: fastapi-app
   labels:
     app: fastapi
 spec:
@@ -15,7 +15,7 @@ spec:
         app: fastapi
     spec:
       containers:
-      - name: sumitg2386/fastapi-app:262c3f4
+      - name: fastapi
         image: sumitg2386/fastapi-app:262c3f4
         ports:
         - containerPort: 8000
