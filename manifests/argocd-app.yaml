@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: fastapi-app
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: 'https://github.com/sumitg2386/fastapi-app.git'  # GitHub repo URL
+    targetRevision: main
+    path: manifests  # Path to the YAML manifests in your repo
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+    - CreateNamespace=true
