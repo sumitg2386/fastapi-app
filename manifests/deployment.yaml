@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: fastapi
-        image: sumitg2386/fastapi-app:262c3f4
+        image: sumitg2386/fastapi-app:cf8c589
         ports:
         - containerPort: 8000
 ---
