@@ -19,3 +19,16 @@ spec:
         image: sumitg2386/fastapi-app:latest:latest  # Replace with your Docker image
         ports:
         - containerPort: 8000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: fastapi-service
+spec:
+  selector:
+    app: fastapi
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8000
+  type: NodePort
