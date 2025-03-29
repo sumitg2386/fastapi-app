@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: sumitg2386/fastapi-app:latest
+  name: sumitg2386/fastapi-app:262c3f4
   labels:
     app: fastapi
 spec:
@@ -15,8 +15,8 @@ spec:
         app: fastapi
     spec:
       containers:
-      - name: sumitg2386/fastapi-app:latest
-        image: sumitg2386/fastapi-app:latest  # Replace with your Docker image
+      - name: sumitg2386/fastapi-app:262c3f4
+        image: sumitg2386/fastapi-app:262c3f4
         ports:
         - containerPort: 8000
 ---
