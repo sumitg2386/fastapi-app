@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: fastapi
-        image: sumitg2386/fastapi-app:ae95c4f
+        image: sumitg2386/fastapi-app:99079f2
         ports:
         - containerPort: 8000
         command: ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
